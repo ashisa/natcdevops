@@ -111,7 +111,7 @@
     resources:
       - flux-system
       - ../kind1/podinfo-kustomization.yaml
-      - ../kind2/podinfo-source.yaml
+      - ../kind1/podinfo-source.yaml
     ```
 16. Commit and merge the changes -
     ```
