@@ -86,3 +86,34 @@
     kubectl port-forward service/podinfo 9898
     kubectl port-forward service/demoapp 8080:80
     ```
+ 13. Create an indentical environment in another cluster (assumes kind2 as the other cluster) -
+    ```
+    kind export kubeconfig --name kind2
+    
+    flux bootstrap github \
+    --context=kind-kind2 \
+    --owner=${GITHUB_USER} \
+    --repository=fleet-infra \
+    --branch=main \
+    --personal \
+    --path=clusters/kind2
+
+    git pull origin main
+    
+    cat <<EOF >./cluster/kind2/kustomization.yaml
+    apiVersion: kustomize.config.k8s.io/v1beta1
+    kind: Kustomization
+    resources:
+      - flux-system
+      - ../kind1/podinfo-kustomization.yaml
+      - ../kind2/podinfo-source.yaml
+      EOF
+      
+    git add -A && git commit -m "add clone"
+    git push
+
+    flux reconcile kustomization flux-system \
+    --context=kind-kind2 \
+    --with-source 
+
+    ```
