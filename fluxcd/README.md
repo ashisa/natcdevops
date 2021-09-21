@@ -55,7 +55,11 @@
     ```
     kubectl get deployments,services,pods -A
     ```
-11. Let's install another app to our cluster now -
+11. Check the GitRepository CRDs added to your cluster -
+    ```
+    kubectl get gitrepository -A
+    ```
+12. Let's install another app to our cluster now -
     ```
     flux create source git demoapp \
     --url=https://github.com/ashisa/aks-flux \
@@ -81,12 +85,12 @@
     
     kubectl get deployments,services,pods -A
     ```
-12. You can access the web app with a port-forward
+13. You can access the web app with a port-forward
     ```
     kubectl port-forward service/podinfo 9898
     kubectl port-forward service/demoapp 8080:80
     ```
-13. Create an indentical environment in another cluster (assumes kind2 as the other cluster) -
+14. Create an indentical environment in another cluster (assumes kind2 as the other cluster) -
     ```
     kind export kubeconfig --name kind2
     
