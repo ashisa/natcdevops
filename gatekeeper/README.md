@@ -32,6 +32,10 @@ If you want to deploy a released version of Gatekeeper in your cluster with a pr
 ```sh
 kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/release-3.5/deploy/gatekeeper.yaml
 ```
+Validate the installation by listing down the pods under the gatekeeper-system namespace:
+```sh
+kubectl get pods -n gatekeeper-system
+```
 
 ## Step3 - Demo script
 
