@@ -8,6 +8,7 @@ We will cover the following topics -
 
 ### GitOps for your K8s clusters with FluxCD (https://fluxcd.io/)
 1.	Install Flux
+
     On Mac -
     ```
     brew install fluxcd/tap/flux
