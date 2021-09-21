@@ -43,13 +43,7 @@
     ```
 8.	Create a Kustomization -
     ```
-    flux create kustomization podinfo \  
-    --source=podinfo \  
-    --path="./kustomize" \  
-    --prune=true \  
-    --validation=client \  
-    --interval=5m \  
-    --export > ./clusters/kind1/podinfo-kustomization.yaml
+    flux create kustomization podinfo --source=podinfo --path="./kustomize" --prune=true --validation=client --interval=5m --export > ./clusters/kind1/podinfo-kustomization.yaml
     git add -A && git commit -m "Add podinfo Kustomization"
     git push
     ```
