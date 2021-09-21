@@ -107,7 +107,7 @@
       - flux-system
       - ../kind1/podinfo-kustomization.yaml
       - ../kind2/podinfo-source.yaml
-      EOF
+    EOF
       
     git add -A && git commit -m "add clone"
     git push
