@@ -86,7 +86,7 @@
     kubectl port-forward service/podinfo 9898
     kubectl port-forward service/demoapp 8080:80
     ```
- 13. Create an indentical environment in another cluster (assumes kind2 as the other cluster) -
+13. Create an indentical environment in another cluster (assumes kind2 as the other cluster) -
     ```
     kind export kubeconfig --name kind2
     
