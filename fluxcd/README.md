@@ -98,7 +98,7 @@
 13. You can access the web app with a port-forward
     ```
     kubectl port-forward service/podinfo 9898
-    kubectl port-forward service/demoapp 8080:80
+    kubectl port-forward -n demoapp service/demoapp 8080:80
     ```
 14. Create an indentical environment in another cluster (assumes kind2 as the other cluster) -
     ```
