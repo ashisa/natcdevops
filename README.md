@@ -6,4 +6,5 @@ This repo contains the links and tech artifacts for the workshop. We primarily u
 
 We will cover the following topics -
 
-1. [GitOps for your K8s clusters with FluxCD (https://fluxcd.io/)](fluxcd/README.md)
+1. [Install K.I.N.D.](k.i.n.d./README.md)
+2. [GitOps for your K8s clusters with FluxCD (https://fluxcd.io/)](fluxcd/README.md)
