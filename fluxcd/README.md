@@ -33,17 +33,27 @@
 6.	Clone the repo -
     ```
     git clone https://github.com/$GITHUB_USER/fleet-infra
-    cd fleet-infra
     ```
 7.	Add podinfo repo to flux -
     ```
-    flux create source git podinfo --url=https://github.com/stefanprodan/podinfo --branch=master --interval=30s --export > ./clusters/kind1/podinfo-source.yaml
+    cd fleet-infra
+    flux create source git podinfo \
+    --url=https://github.com/stefanprodan/podinfo \
+    --branch=master \
+    --interval=30s \
+    --export > ./clusters/kind1/podinfo-source.yaml
     git add -A && git commit -m "Add podinfo GitRepository"
     git push
     ```
 8.	Create a Kustomization -
     ```
-    flux create kustomization podinfo \  --source=podinfo \  --path="./kustomize" \  --prune=true \  --validation=client \  --interval=5m \  --export > ./clusters/kind1/podinfo-kustomization.yaml
+    flux create kustomization podinfo \
+    --source=podinfo \
+    --path="./kustomize" \
+    --prune=true \
+    --validation=client \
+    --interval=5m \
+    --export > ./clusters/kind1/podinfo-kustomization.yaml
     git add -A && git commit -m "Add podinfo Kustomization"
     git push
     ```
@@ -88,7 +98,7 @@
 13. You can access the web app with a port-forward
     ```
     kubectl port-forward service/podinfo 9898
-    kubectl port-forward service/demoapp 8080:80
+    kubectl port-forward -n demoapp service/demoapp 8080:80
     ```
 14. Create an indentical environment in another cluster (assumes kind2 as the other cluster) -
     ```
