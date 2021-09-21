@@ -8,10 +8,14 @@ We will cover the following topics -
 
 ### GitOps for your K8s clusters with FluxCD (https://fluxcd.io/)
 1.	Install Flux
-  a.	On Mac -
+    On Mac -
+    '''
     brew install fluxcd/tap/flux
-  b.	On Linux -
+    '''
+    On Linux -
+    '''
     curl -s https://fluxcd.io/install.sh | sudo bash
+    '''
   c.	On Windows -
     choco install flux
 2.	Create GitHub Personal Token and export details
