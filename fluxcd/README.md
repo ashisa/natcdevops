@@ -37,13 +37,23 @@
 7.	Add podinfo repo to flux -
     ```
     cd fleet-infra
-    flux create source git podinfo --url=https://github.com/stefanprodan/podinfo --branch=master --interval=30s --export > ./clusters/kind1/podinfo-source.yaml
+    flux create source git podinfo \
+    --url=https://github.com/stefanprodan/podinfo \
+    --branch=master \
+    --interval=30s \
+    --export > ./clusters/kind1/podinfo-source.yaml
     git add -A && git commit -m "Add podinfo GitRepository"
     git push
     ```
 8.	Create a Kustomization -
     ```
-    flux create kustomization podinfo --source=podinfo --path="./kustomize" --prune=true --validation=client --interval=5m --export > ./clusters/kind1/podinfo-kustomization.yaml
+    flux create kustomization podinfo \
+    --source=podinfo \
+    --path="./kustomize" \
+    --prune=true \
+    --validation=client \
+    --interval=5m \
+    --export > ./clusters/kind1/podinfo-kustomization.yaml
     git add -A && git commit -m "Add podinfo Kustomization"
     git push
     ```
