@@ -18,3 +18,11 @@
   ```
   choco install kind
   ```
+4. Create a new cluster -
+  ```
+  kind create cluster --name <cluster-name>
+  ```
+5. Change context between servers -
+  ```
+  kind export kubeconfig --name <cluster-name>
+  ```
