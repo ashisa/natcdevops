@@ -103,16 +103,18 @@
     --path=clusters/kind2
 
     git pull origin main
-    
-    cat <<EOF >./cluster/kind2/kustomization.yaml
+    ```
+15. Add Kustomization to ./cluster/kind2/kustomization.yaml that points to the artifacts from the other cluster -
+    ```
     apiVersion: kustomize.config.k8s.io/v1beta1
     kind: Kustomization
     resources:
       - flux-system
       - ../kind1/podinfo-kustomization.yaml
       - ../kind2/podinfo-source.yaml
-    EOF
-      
+    ```
+16. Commit and merge the changes -
+    ```
     git add -A && git commit -m "add clone"
     git push
 
