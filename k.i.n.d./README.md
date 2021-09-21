@@ -26,3 +26,7 @@
   ```
   kind export kubeconfig --name <cluster-name>
   ```
+6. Dump the cluster information using kubectl -
+  ```
+  kubectl cluster-info dump |more
+  ```
