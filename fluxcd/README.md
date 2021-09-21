@@ -55,3 +55,34 @@
     ```
     kubectl get deployments,services,pods -A
     ```
+11. Let's install another app to our cluster now -
+    ```
+    flux create source git demoapp \
+    --url=https://github.com/ashisa/aks-flux \
+    --branch=main \
+    --interval=30s \
+    --export > ./clusters/kind1/demoapp-source.yaml
+    
+    git add -A && git commit -m "Add DemoApp GitRepository"
+    git push
+    
+    flux create kustomization demoapp \
+    --source=demoapp \
+    --path="./manifests" \
+    --prune=true \
+    --validation=client \
+    --interval=5m \
+    --export > ./clusters/kind1/demoapp-kustomization.yaml
+    
+    git add -A && git commit -m "Add DemoApp Kustomization"
+    git push
+    
+    flux get kustomizations --watch
+    
+    kubectl get deployments,services,pods -A
+    ```
+12. You can access the web app with a port-forward
+    ```
+    kubectl port-forward service/podinfo 9898
+    kubectl port-forward service/demoapp 8080:80
+    ```
