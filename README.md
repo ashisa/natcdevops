@@ -8,3 +8,5 @@ We will cover the following topics -
 
 1. [Install K.I.N.D.](kind/README.md)
 2. [GitOps for your K8s clusters with FluxCD (https://fluxcd.io/)](fluxcd/README.md)
+3. [Using OPA Gatekeeper for admission control](gatekeeper/README.md)
+
