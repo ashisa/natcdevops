@@ -40,6 +40,9 @@ Validate the installation by listing down the pods under the gatekeeper-system n
 kubectl get pods -n gatekeeper-system
 ```
 
+```sh
+kubectl api-resources | grep gatekeeper
+```
 ## Step3 - Demo script
 ```sh
 cd natcdevops/gatekeeper/lab
