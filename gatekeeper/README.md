@@ -1,7 +1,4 @@
----
-id: install
-title: Gatekeeper
----
+
 # Gatekeeper Lab Instructions
 
 This repo is a simplified version of the [OPA gatekeeper repo](https://github.com/open-policy-agent/gatekeeper) for the purpose of this lab. Please refer the original repo for more information on advanced configurations. 
@@ -13,7 +10,13 @@ This repo is a simplified version of the [OPA gatekeeper repo](https://github.co
 
 The minimum supported Kubernetes version of Gatekeeper is **n-4 of the latest stable Kubernetes release** per [Kubernetes Supported Versions policy](https://kubernetes.io/releases/version-skew-policy/). NOTE: Gatekeeper requires Kubernetes resources introduced in v1.16.
 
-## Step 1 - RBAC Permissions
+### Linux environment
+
+Linux or WSL console with pe function available for running the demo script.  If you are using a Windows environment, then each kubectl command in the lab/demo.sh needs to copy pasted and executed separately
+
+
+
+## Step1 - RBAC Permissions
 
 For either installation method, make sure you have cluster admin permissions:
 
@@ -37,13 +40,19 @@ Validate the installation by listing down the pods under the gatekeeper-system n
 kubectl get pods -n gatekeeper-system
 ```
 
+```sh
+kubectl api-resources | grep gatekeeper
+```
 ## Step3 - Demo script
-
-Run the lab/demo.sh
+```sh
+cd natcdevops/gatekeeper/lab
+chmod 755 *.sh
+```
+Execute the lab/demo.sh script
 
 ## Step4 - Cleanup of resources created
 
-Run the lab/cleanup.sh
+Run the cleanup.sh scirpt to delete all k8s objects created in step3.
 
 ## Step5 - Gatekeeper Uninstallation
 
